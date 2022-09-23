@@ -12,7 +12,7 @@
 
         <div class="row justify-content-center my-5">
             <div class="col-lg-6">
-                <form  id="register" name="Register" method="post" action="#" >
+                <form  id="register" name="Register" method="post" action="#"  >
                     <!--Tooltip Name-->
                     <span class="toolt" data-bs-parent="bottom" title="Enter Your Name">
                         <div class="mb-4 input-group">
@@ -83,7 +83,7 @@
                      <!--Tooltip agree -->
                     <div class="form-check mb-2 ">
                         <span class="toolt"  data-bs-parent="top" title="Agree Policy">
-                            <input class="form-check-input ms-3 " type="checkbox" value="Agree" id="agree">
+                            <input class="form-check-input ms-3 " type="checkbox" value="Agree" id="agree" name="Agree" onclick="submetChecker();">
                             <label class="form-check-label ms-2" for="agree">
                                 By signing up, you agree to our
                                     <a href="#" class=" ">Terms</a>,
@@ -101,17 +101,23 @@
 
                     <!--Submit Button and cancel -->
                     <div class="mb-4 text-center mt-3">
-                            <button type="submit" class="btn btn-primary col-lg-3">Sign up  </button>
+                            <button type="submit" class="btn btn-primary col-lg-3" id="signup" name="Signup" disabled >Sign up  </button>
                         </div>
                 </form>
             </div>
         </div>
     </div>
+    
+  
 
+
+    <!--for toolt -->
     <script>
         const tooltip=document.querySelectorAll('.toolt')
         tooltip.forEach(t=>{ new bootstrap.Tooltip(t)
         })
     </script>
+    <!--connect sign up with js -->
+    <script src="js/sign.up.js"></script>
 
 </body>
