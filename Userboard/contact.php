@@ -18,7 +18,7 @@
         <div class="row justify-content-center my-5">
             <div class="col-lg-6">
                 <form  id="contact" name="Contact" method="post" action="#" >
-                        <!--Tooltip-->
+                        <!--Tooltip User Email-->
                         <span class="toolt" data-bs-parent="bottom" title="Enter Your Email">
                             <div class="mb-4 input-group">
                                 <span class="input-group-text">
@@ -27,6 +27,7 @@
                                 <input type="email" name="Email" id="email" class="form-control" placeholder="Enter your Email"> 
                             </div>
                         </span>
+                         <!--Tooltip User Name-->
                         <span  class="toolt" data-bs-parent="bottom" title="Enter Your Name">
                             <div class="mab-4 input-group">
                                 <span class="input-group-text">
@@ -35,6 +36,7 @@
                                 <input type="text" class="form-control" name="Name" id="name"placeholder="Enter your Name">
                             </div>
                         </span>
+                         <!--Tooltip ContactText-->
                         <span  class="toolt" data-bs-parent="bottom" title="Enter Your Question">
                             <div class="form-floating mb-4 mt-4">
                                 <textarea name="ContactText" id="contactText"  class="form-control" style="height: 140px;"></textarea>
@@ -46,6 +48,29 @@
                             <button type="submit"  name="Contact" id="contact" class="btn btn-primary">Submit  </button>
                         </div>              
                 </form>
+
+                 <!--Insert into database -->
+               <?php
+                    if(isset($_POST['Contact']))
+                    {
+                        require_once('config.php');
+                        $name=$_POST['Name'];
+                        $email=$_POST['Email'];
+                        $text=$_POST['ContactText'];
+
+                        // to fixe single quote
+                        $textReplace= str_replace("'","''","$text");
+
+                        $sql= "INSERT INTO `contact` (`id`, `name`, `text`,`email`) VALUES (NULL, '$name', '$textReplace','$email');";
+                        $result= mysqli_query($conn,$sql);
+                        if(!$result)
+                        {
+                            echo "Error : ". $sql ;
+                        }
+                        mysqli_close($conn);
+                    }
+                    
+               ?>
             </div>
 
         </div>
