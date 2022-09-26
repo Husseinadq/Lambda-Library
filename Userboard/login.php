@@ -12,7 +12,7 @@
 
         <div class="row justify-content-center my-5">
             <div class="col-lg-4">
-                <form  id="login" name="Login" method="post" action="#"  >
+                <form  id="loginForm" name="LoginForm" method="post" action="#"  >
                    
                     <!--Tooltip Emall-->
                      <span class="toolt" data-bs-parent="bottom" title="Enter Your Email">
@@ -48,8 +48,8 @@
 
                     
                     <!--Submit Button  -->
-                    <div class="mb-4 text-center mt-3">
-                            <button type="submit" class="btn btn-primary col-lg-3" id="signup" name="Signup"  > 
+                         <div class="mb-4 text-center mt-3">
+                            <button type="submit" class="btn btn-primary col-lg-3" id="login" name="Login"  > 
                                 <i class="bi bi-box-arrow-in-right"> </i>
                                 Log in  </button>
                         </div>
@@ -64,4 +64,7 @@
         tooltip.forEach(t=>{ new bootstrap.Tooltip(t)
         })
     </script>
+      
+    <!--connect log in with js -->
+    <script src="js/log.in.js"></script>
 </body>
