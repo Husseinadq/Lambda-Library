@@ -5,9 +5,26 @@
 <body>
 <div class="container-lg">
     <div class="row justify-content-center my-5">
+    <?php
+                         require_once('config.php');
+                         $val = $_GET['category'];
+                         $sql="SELECT * FROM aboutus  ";
+                         $result= mysqli_query($conn,$sql);
+                         if (!$result ) {
+                             die("Select error");
+                         }
+                         $text="";
+
+                         while($row=mysqli_fetch_assoc($result))
+                         { 
+                             
+                             $text=$row['text'];
+                    
+                         }
+                        ?>
         <div class="col-lg-6 mt-4 ">
             <h2 class="text-center  fst-normal">About </h2>
-            <p class="text-center fs-4 fst-normal mb-5"> use and not just for display purposes. A library provides physica</p>   
+            <?php echo "<p class='text-center fs-4 fst-normal mb-5'>$text</p>";?>
         </div>   
     </div>
 </div>

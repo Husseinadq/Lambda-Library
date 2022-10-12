@@ -6,17 +6,32 @@
 
                 <div class="col-3 bg-primary ">
                     <div class="list-group mt-3" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action " id="list-home-list" data-toggle="list" href="index.php?category=1" role="tab" aria-controls="home">Novels And Literary Stories</a>
-                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="index.php?category=2" role="tab" aria-controls="profile">Human Development </a>
-                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="index.php?category=3" role="tab" aria-controls="messages">Islamic Religion</a>
-                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="index.php?category=4" role="tab" aria-controls="settings">History</a>
+                        <?php
+                         require_once('config.php');
+                         $valc = $_GET['category'];
+                         $sqlc="SELECT * FROM productcategory  ";
+                         $resultc= mysqli_query($conn,$sqlc);
+                         if (!$resultc ) {
+                             die("Select error");
+                         }
+
+                         while($row=mysqli_fetch_assoc($resultc))
+                         { 
+                             $titalc=$row['name'];
+                             $categoriesId=$row['productcategoryId'];
+                            
+                             echo " 
+                             <a class='list-group-item list-group-item-action'  id='list-home-list' data-toggle='list' href='index.php?category=$categoriesId' role='tab' aria-controls='home'>$titalc Stories</a>
+                             ";
+                         }
+                        ?>
+                    
                     </div>
                 </div>
                 <div class="col-9 bg-secondary ">
                      <div class="d-flex flex-wrap text-center">
                     <?php
 
-                        require_once('config.php');
                         $val = $_GET['category'];
                         $sql="SELECT * FROM product where productcategoryId like '$val' ";
                         $result= mysqli_query($conn,$sql);
