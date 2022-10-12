@@ -4,40 +4,15 @@
         <div class="container-lg">
             <div class="row">
 
-                <div class="col-3 bg-primary ">
-                    <div class="list-group mt-3" id="list-tab" role="tablist">
-                        <?php
-                         require_once('config.php');
-                         $sqlc="SELECT * FROM productcategory  ";
-                         $resultc= mysqli_query($conn,$sqlc);
-                         if (!$resultc ) {
-                             die("Select error");
-                         }
-
-                         while($row=mysqli_fetch_assoc($resultc))
-                         { 
-                             $titalc=$row['name'];
-                             $categoriesId=$row['productcategoryId'];
-                            
-                             echo " 
-                             <a class='list-group-item list-group-item-action'  id='list-home-list' data-toggle='list' href='index.php?category=$categoriesId' role='tab' aria-controls='home'>$titalc Stories</a>
-                             ";
-                         }
-                        ?>
-                    
-                    </div>
-                </div>
-                <div class="col-9 bg-secondary ">
+                <?php require_once('header.php');
+                      require_once('search.php');  
+                ?>
+                <div class="col-12 bg-secondary ">
                      <div class="d-flex flex-wrap text-center">
                     <?php
-                        if ($_GET['category']=='') {
-                            $val ="1";
-                        }
-                        else
-                        {
-                            $val = $_GET['category'];
-                        }
-                        $sql="SELECT * FROM product where productcategoryId like '$val' ";
+                         require_once('config.php');
+                        $val = $_GET['SearchText'];
+                        $sql="SELECT * FROM product where `name` like '%$val%'";
                         $result= mysqli_query($conn,$sql);
                         if (!$result ) {
                             die("Select error");

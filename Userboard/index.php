@@ -3,5 +3,9 @@
 ?>
 
 <?php
-    require_once('about.php');
+    require_once('search.php');
 ?>
+<?php
+    require_once('categories.php');
+?>
+
