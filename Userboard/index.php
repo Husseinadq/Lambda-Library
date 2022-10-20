@@ -2,7 +2,7 @@
     require_once('header.php');
 ?>
 <?php
-    require_once('search.php');
+    require_once('prodctSlider.php');
 ?>
 
 
