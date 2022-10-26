@@ -6,6 +6,9 @@
      <!-- login form -->
     <div class="container-lg">
         <div class="text-center">
+            <?php
+                require_once('header.php');
+            ?>
             <h2>Restore Password</h2>
             <p class="lead">Unlimited Library</p>
         </div>

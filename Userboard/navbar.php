@@ -15,7 +15,7 @@
                     <div class="collapse navbar-collapse justify-content-start align-center" id="main-nav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                              <a href="#home" class="nav-link">Home</a>  
+                              <a href="index.php" class="nav-link">Home</a>  
                             </li>
                             <li class="nav-item">
                               <a href="#categories" class="nav-link">Book Categories</a>  
@@ -27,10 +27,10 @@
                               <a href="#menu" class="nav-link">Menu</a>  
                             </li>
                             <li class="nav-item">
-                              <a href="#search" class="nav-link">Search</a>  
+                              <a href="search.php" class="nav-link">Search</a>  
                             </li>
                             <li class="nav-item">
-                              <a href="#contact" class="nav-link">Contact</a>  
+                              <a href="contact.php" class="nav-link">Contact</a>  
                             </li>
                         </ul>
 

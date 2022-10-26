@@ -1,6 +1,7 @@
 <body>
     <!-- search form -->
     <div class="container-lg">
+        <div class="row">
         <div class="text-center mt-3 mb-3">
             <h2> Lambda Library</h2>
             <p class="lead mt-3">Artificial intelligence search engine for books</p>
@@ -19,10 +20,8 @@
             </div>
         </form>
         <?php
-         if (isset($_GET['Search'])) {
-
-        }
+        
         ?>
+        </div>
     </div>
-
 </body>

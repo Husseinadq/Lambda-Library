@@ -37,7 +37,6 @@
                 <div class="carousel-inner">
                     <?php 
                     while ($counter>0 ) {
-                        
                      if ($counter>4) {
                     ?>
                     <div class="item active">
@@ -96,11 +95,11 @@
                             }
                            $counter-=4;
                            if ($counter>4) {
-                            
+                                    
                            ?>
                             
                         <!-- /item -->
-                    <div class="item">
+                    <div class="item" >
                     <?php
                                 for ($i=$counter; $i > $counter-4 ; $i--) { 
                                     $row=mysqli_fetch_assoc($result);

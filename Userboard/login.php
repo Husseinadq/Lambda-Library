@@ -56,7 +56,7 @@
                     <!--Forgo pass -->
                     <label class="form-check-label ms-3  mt-2">
                             Forgot password?
-                                <a href="#" class=" ">Restore Password</a> 
+                                <a href="RestorePassword.php" class=" ">Restore Password</a> 
                         </label>
 
                     

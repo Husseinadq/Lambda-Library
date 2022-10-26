@@ -6,6 +6,9 @@
     <!-- contact form -->
     <div class="container-lg">
         <div class="text-center">
+            <?php
+            require_once('header.php');
+            ?>
             <h2> Sign up</h2>
             <p class="lead">Unlimited Library</p>
         </div>
@@ -96,7 +99,7 @@
                       <!--Log in Option -->
                     <label class="form-check-label ms-5  mt-3">
                             By signing up, you agree to our
-                                <a href="#" class=" ">Log in</a> 
+                                <a href="login.php" class=" ">Log in</a> 
                         </label>
 
                     <!--Submit Button and cancel -->
