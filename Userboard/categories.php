@@ -3,7 +3,7 @@
         <!-- Categories -->
         <div class="container-lg">
             <div class="row">
-
+            <h2 name="Title" class="text-center text-uppercase">categories</h2>
                 <div class="col-3 bg-primary ">
                     <div class="list-group mt-3" id="list-tab" role="tablist">
                         <?php
@@ -20,7 +20,7 @@
                              $categoriesId=$row['productcategoryId'];
                             
                              echo " 
-                             <a class='list-group-item list-group-item-action'  id='list-home-list' data-toggle='list' href='index.php?category=$categoriesId' role='tab' aria-controls='home'>$titalc Stories</a>
+                             <a class='list-group-item list-group-item-action'  id='list-home-list' data-toggle='list' href='categoriesUI.php?category=$categoriesId' role='tab' aria-controls='home'>$titalc Stories</a>
                              ";
                          }
                         ?>
@@ -30,6 +30,7 @@
                 <div class="col-9 bg-secondary ">
                      <div class="d-flex flex-wrap text-center">
                     <?php
+
                         if ($_GET['category']=='') {
                             $val ="1";
                         }
@@ -45,6 +46,7 @@
                         
                         while($row=mysqli_fetch_assoc($result))
                         { 
+                            $bookid=$row['productId'];
                             $title=$row['name'];
                             $price=$row['price'];
 
@@ -67,7 +69,7 @@
                                         </a>
                                         </div>
                                         <div class='card-body'>
-                                        <a href='' class='text-reset'>
+                                        <a href='prodct.php?bookid=$bookid' class='text-reset'>
                                             <h5 class='card-title mb-1'>$title</h5>
                                         </a>
                                         <a href='' class='text-reset'>

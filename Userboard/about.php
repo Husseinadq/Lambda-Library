@@ -3,11 +3,14 @@
     <title>About</title>
 </head>
 <body>
+    <?php
+         require_once('header.php');
+
+    ?>
 <div class="container-lg">
     <div class="row justify-content-center my-5">
     <?php
                          require_once('config.php');
-                         $val = $_GET['category'];
                          $sql="SELECT * FROM aboutus  ";
                          $result= mysqli_query($conn,$sql);
                          if (!$result ) {
