@@ -37,7 +37,7 @@
                            </ul>
                            
                             <div class="position-absolute top-0 end-0">
-                              <a href="#" class="btn btn-primary btn-sm end-0 top-0 m-2">
+                              <a href="basketUI.php" class="btn btn-primary btn-sm end-0 top-0 m-2">
                               <span class="bi bi-cart3"></span> Basket
                               </a> 
                               <a href="login.php" class="btn btn-primary btn-sm end-0 top-0 m-2">Log in </a> 

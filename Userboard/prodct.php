@@ -37,7 +37,9 @@
                     </h1>
                     <p class="lead my-4 text-muted">Lorem ipsum dolor sit amet consectetur 
                          consequuntur.</p>
-                    <a href="basket.php" class="btn btn-primary btn-lg">Buy Now</a>
+                   <?php 
+                        
+                         echo "<a href='basket.php?productID=$bookid' class='btn btn-primary btn-lg'>Buy Now</a>";?>
 
                         <!-- open sidebar / offcanvas-->
                         <a href="#sidebar" class="d-block mt-3" data-bs-toggle="offcanvas"

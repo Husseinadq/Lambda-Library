@@ -1,3 +1,4 @@
+
 <html>
     <body> 
         <!-- Categories -->
@@ -5,24 +6,22 @@
             <div class="row">
 
                 <?php require_once('header.php');
-                      require_once('search.php');  
+                    require_once('config.php');
                 ?>
                 <div class="col-12 bg-secondary ">
                      <div class="d-flex flex-wrap text-center">
                     <?php
-                         require_once('config.php');
-                        $val = $_GET['SearchText'];
-                        $sql="SELECT * FROM product where `name` like '%$val%'";
-                        $result= mysqli_query($conn,$sql);
-                        if (!$result ) {
+                        $val = 3;//$_GET['SearchText'];
+                        $sqlBas="SELECT * FROM cart where `userId` like '$val'";
+                        $resultBas= mysqli_query($conn,$sqlBas);
+                        if (!$resultBas ) {
                             die("Select error");
                         }
                         
-                        while($row=mysqli_fetch_assoc($result))
+                        while($row=mysqli_fetch_assoc($resultBas))
                         { 
-                            $title=$row['name'];
-                            $price=$row['price'];
-                            $bookid=$row['productId'];
+                           // $title=$row['name'];
+                           // $price=$row['price'];
 
                             echo " 
                                     <div class='col-lg-3 col-md-4 '>
@@ -43,13 +42,13 @@
                                         </a>
                                         </div>
                                         <div class='card-body'>
-                                        <a href='prodct.php?bookid=$bookid' class='text-reset'>
-                                            <h5 class='card-title mb-1'>$title</h5>
+                                        <a href='' class='text-reset'>
+                                            <h5 class='card-title mb-1'>title</h5>
                                         </a>
                                         <a href='' class='text-reset'>
                                             <p>Human Developement</p>
                                         </a>
-                                        <h6 class='mb-1'>$$price</h6>
+                                        <h6 class='mb-1'>price</h6>
                                         </div>
                                     </div>
                                     </div> ";
@@ -59,6 +58,27 @@
                      </div>  
                 </div>
 
+            </div>
+            <div class="row">
+            <div class="col-12 bg-secondary ">
+                   
+                        <form action="" name="Buy" method="post" >
+                        <div class="mb-4 text-center mt-3">
+                            <button type="submit" class="btn btn-primary col-lg-3" id="buy" name="botBuy"  >Buy </button>
+                        </div>
+                        </form>
+                        <?php
+                    if(isset($_POST['botBuy']))
+                    {
+                        require_once('config.php');
+                        require_once('function.php');
+
+                        buy($conn,3);
+                    }
+                    
+               ?>
+                    
+                </div>
             </div>
         </div>
     </body>
