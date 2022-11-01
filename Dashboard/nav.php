@@ -17,13 +17,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="addUser.php">
                             <span data-feather="users" class="align-text-bottom"></span>
                             User
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="addCategories.php">
                             <span data-feather="file-text" class="align-text-bottom"></span>
                             Categories
                         </a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2022 at 03:33 AM
+-- Generation Time: Nov 01, 2022 at 11:10 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -146,7 +146,9 @@ CREATE TABLE `productcategory` (
 --
 
 INSERT INTO `productcategory` (`productcategoryId`, `name`, `descr`) VALUES
-(1, 'ENGLSH', 'sdf');
+(1, 'ENGLSH', 'sdf'),
+(2, 'Islamic Religion', 'islamic'),
+(3, 'Computer Programming', 'Computer Programming');
 
 -- --------------------------------------------------------
 
@@ -195,15 +197,18 @@ CREATE TABLE `user` (
   `firstName` varchar(50) NOT NULL,
   `lastName` varchar(50) NOT NULL,
   `telephone` int(15) NOT NULL,
-  `userEmail` varchar(100) NOT NULL
+  `userEmail` varchar(100) NOT NULL,
+  `admin` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`userId`, `password`, `firstName`, `lastName`, `telephone`, `userEmail`) VALUES
-(1, 'hussein', 'hussein', 'hussein', 737, 'husseinadq2@gmail.com');
+INSERT INTO `user` (`userId`, `password`, `firstName`, `lastName`, `telephone`, `userEmail`, `admin`) VALUES
+(1, 'hussein', 'hussein', 'hussein', 737, 'husseinadq2@gmail.com', 1),
+(2, '1234567', 'ameer', ' ', 777, 'ameer@gmail.com', 1),
+(3, '123456', 'othman', ' ', 777, 'othman@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -371,7 +376,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `productcategory`
 --
 ALTER TABLE `productcategory`
-  MODIFY `productcategoryId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `productcategoryId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -389,7 +394,7 @@ ALTER TABLE `taxes`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `useraddress`
