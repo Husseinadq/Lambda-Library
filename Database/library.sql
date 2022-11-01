@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2022 at 07:42 AM
+-- Generation Time: Nov 01, 2022 at 03:33 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,6 +20,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `library`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `aboutus`
+--
+
+CREATE TABLE `aboutus` (
+  `id` int(25) NOT NULL,
+  `text` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -44,6 +55,26 @@ CREATE TABLE `cartitem_` (
   `cartId` int(25) NOT NULL,
   `productId` int(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(25) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `text` text NOT NULL,
+  `email` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `name`, `text`, `email`) VALUES
+(1, 'hussein', 'how i can pay for you', 'husseinadq2@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -85,8 +116,18 @@ CREATE TABLE `product` (
   `sku` varchar(255) NOT NULL,
   `price` decimal(10,0) NOT NULL,
   `productcategoryId` int(25) NOT NULL,
-  `author` varchar(50) NOT NULL
+  `author` varchar(50) NOT NULL,
+  `productImage` varchar(150) DEFAULT 'defalt.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`productId`, `name`, `descr`, `sku`, `price`, `productcategoryId`, `author`, `productImage`) VALUES
+(1, 'Ecstasy', 'Ecastasy ds', '654465', '100', 1, 'hussein', 'defalt.png'),
+(12, 'Tree', 'asdf', '648', '555', 1, 'Tree Man', '9781783780266.jpg'),
+(13, 'SDF', 'asdf', '648k', '555', 1, 'dfh', 'defalt.png');
 
 -- --------------------------------------------------------
 
@@ -99,6 +140,36 @@ CREATE TABLE `productcategory` (
   `name` varchar(50) NOT NULL,
   `descr` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `productcategory`
+--
+
+INSERT INTO `productcategory` (`productcategoryId`, `name`, `descr`) VALUES
+(1, 'ENGLSH', 'sdf');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `reviewId` int(25) NOT NULL,
+  `stars` int(1) NOT NULL,
+  `text` text NOT NULL,
+  `title` varchar(150) NOT NULL,
+  `userId` int(25) NOT NULL,
+  `productId` int(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`reviewId`, `stars`, `text`, `title`, `userId`, `productId`) VALUES
+(4, 4, 'Not Bad', 'It is ok', 1, 1),
+(5, 5, 'Not Bad', 'It is ok', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -127,6 +198,13 @@ CREATE TABLE `user` (
   `userEmail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userId`, `password`, `firstName`, `lastName`, `telephone`, `userEmail`) VALUES
+(1, 'hussein', 'hussein', 'hussein', 737, 'husseinadq2@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -149,6 +227,13 @@ CREATE TABLE `useraddress` (
 --
 
 --
+-- Indexes for table `aboutus`
+--
+ALTER TABLE `aboutus`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
@@ -163,6 +248,13 @@ ALTER TABLE `cartitem_`
   ADD KEY `cartItemId` (`cartItemId`),
   ADD KEY `cartId` (`cartId`),
   ADD KEY `productId` (`productId`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
 
 --
 -- Indexes for table `evaluation`
@@ -201,6 +293,14 @@ ALTER TABLE `productcategory`
   ADD KEY `productcategoryId` (`productcategoryId`);
 
 --
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`reviewId`),
+  ADD KEY `reviews_user` (`userId`),
+  ADD KEY `rev_pro` (`productId`);
+
+--
 -- Indexes for table `taxes`
 --
 ALTER TABLE `taxes`
@@ -226,16 +326,28 @@ ALTER TABLE `useraddress`
 --
 
 --
+-- AUTO_INCREMENT for table `aboutus`
+--
+ALTER TABLE `aboutus`
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cartId` int(25) NOT NULL AUTO_INCREMENT;
+  MODIFY `cartId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `cartitem_`
 --
 ALTER TABLE `cartitem_`
-  MODIFY `cartItemId` int(25) NOT NULL AUTO_INCREMENT;
+  MODIFY `cartItemId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `evaluation`
@@ -250,10 +362,22 @@ ALTER TABLE `ordear`
   MODIFY `orderId` int(25) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `productId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT for table `productcategory`
 --
 ALTER TABLE `productcategory`
-  MODIFY `productcategoryId` int(25) NOT NULL AUTO_INCREMENT;
+  MODIFY `productcategoryId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `reviewId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `taxes`
@@ -265,7 +389,7 @@ ALTER TABLE `taxes`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(25) NOT NULL AUTO_INCREMENT;
+  MODIFY `userId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `useraddress`
@@ -281,35 +405,33 @@ ALTER TABLE `useraddress`
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`cartId`) REFERENCES `ordear` (`cartId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `cartanduser` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cartitem_`
 --
 ALTER TABLE `cartitem_`
-  ADD CONSTRAINT `cartitem__ibfk_1` FOREIGN KEY (`cartItemId`) REFERENCES `cart` (`cartId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cartitem__ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cartitem__ibfk_1` FOREIGN KEY (`cartId`) REFERENCES `cart` (`cartId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cartitem_prod_f` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`);
 
 --
 -- Constraints for table `evaluation`
 --
 ALTER TABLE `evaluation`
-  ADD CONSTRAINT `evaluation_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `evaluation_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `ordear`
---
-ALTER TABLE `ordear`
-  ADD CONSTRAINT `ordear_ibfk_1` FOREIGN KEY (`taxesId`) REFERENCES `taxes` (`taxesId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ordear_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `evaluation_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`productcategoryId`) REFERENCES `productcategory` (`productcategoryId`);
+
+--
+-- Constraints for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `rev_pro` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`),
+  ADD CONSTRAINT `reviews_user` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`);
 
 --
 -- Constraints for table `useraddress`

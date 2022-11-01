@@ -22,6 +22,7 @@
                 $price=$row['price'];
                 $descr=$row['descr'];
                 $author=$row['author'];
+                $image=$row['productImage'];
 
             }
     ?>
@@ -52,7 +53,7 @@
                 <div class="col-md-5 text-center d-none d-md-block">
                      <!-- tooltip --> 
                     <span class="toolt" data-bs-placement="bottom" title="Net Ninga Book Cover">
-                        <img class="img-fluid" src="img/miracle.png" alt="ebook cover">
+                       <?php echo "<img class='img-fluid' src='img/$image' alt='ebook cover'>"?>
                     </span>
                 </div> 
             </div>

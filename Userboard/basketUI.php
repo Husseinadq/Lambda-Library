@@ -11,7 +11,7 @@
                 <div class="col-12 bg-secondary ">
                      <div class="d-flex flex-wrap text-center">
                     <?php
-                        $val = 3;//$_GET['SearchText'];
+                        $val = 1;//$_GET['SearchText'];
                         $sqlBas="SELECT * FROM cart where `userId` like '$val'";
                         $resultBas= mysqli_query($conn,$sqlBas);
                         if (!$resultBas ) {
@@ -73,7 +73,7 @@
                         require_once('config.php');
                         require_once('function.php');
 
-                        buy($conn,3);
+                        buy($conn,1);
                     }
                     
                ?>

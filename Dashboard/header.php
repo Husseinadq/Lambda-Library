@@ -8,7 +8,13 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
     <title>Dashboard</title>
-    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+ <!-- CSS only -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+              rel="stylesheet" 
+              integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" 
+              crossorigin="anonymous">
+        <!-- Bootstrap icon -->      
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;

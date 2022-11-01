@@ -1,18 +1,18 @@
 <?php
     function addToBasket($conn,$userId,$itemId)
     {
-        $sqlCode= "INSERT INTO `cart` (`cartID`, `total`, `userId`) VALUES (NULL, '0', '$userId')";
+        $sqlCode= "INSERT INTO `cart` (`cartId`, `total`, `userId`) VALUES (NULL, '0', '$userId')";
         $cardResult= mysqli_query($conn,$sqlCode);
         if(!$cardResult)
         {
             echo "Error : ". $sqlCode ;
         }else{
 
-            $sqlCard="select cartID from cart where $userId like userId";
+            $sqlCard="select cartId from cart where $userId like userId";
             $exe= mysqli_query($conn,$sqlCard);
             $row=mysqli_fetch_assoc($exe);
-            $cardID=$row['cartID']; 
-            $sqlCode2= "INSERT INTO `cartitem_` (`cartItemId`, `cartID`, `productId`) VALUES (NULL, '$cardID', '$itemId')";
+            $cardID=$row['cartId']; 
+            $sqlCode2= "INSERT INTO `cartitem_` (`cartItemId`, `cartId`, `productId`) VALUES (NULL, '$cardID', '$itemId')";
             $cardIResult= mysqli_query($conn,$sqlCode2);
 
         }
