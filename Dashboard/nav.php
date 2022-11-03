@@ -11,19 +11,19 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="addProduct.php">
+                        <a class="nav-link" href="product.php">
                             <span data-feather="file" class="align-text-bottom"></span>
                             Product
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="addUser.php">
+                        <a class="nav-link" href="User.php">
                             <span data-feather="users" class="align-text-bottom"></span>
                             User
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="addCategories.php">
+                        <a class="nav-link" href="categories.php">
                             <span data-feather="file-text" class="align-text-bottom"></span>
                             Categories
                         </a>

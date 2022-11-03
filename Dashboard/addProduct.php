@@ -8,6 +8,7 @@ require_once('nav.php');
     $E_Price="";
     $E_Quan="";
     $E_Author="";
+    $E_Categories="";
     $E_Image="";
     $OK=1;
     
@@ -15,14 +16,14 @@ require_once('nav.php');
                    if(isset($_POST['Add']))
                     {  
                        if (isset($_POST['Name']) && isset($_POST['Description']) && isset($_POST['SKU'])&&
-                       isset($_POST['Price']) && isset($_POST['Quantity']) && isset($_POST['Author']) 
+                       isset($_POST['Price']) && isset($_POST['Quantity']) && isset($_POST['Categories'])&& isset($_POST['Author']) 
                       ) {  
                         $Name=$_POST['Name'];
                         $Desc=$_POST['Description'];
                         $SKU=$_POST['SKU'];
                         $Price=$_POST['Price'];
                         $Quan=$_POST['Quantity'];
-                        $Categories=1;
+                        $Categories=$_POST['Categories'];
                         $Author=$_POST['Author'];
                       
                         if (empty($Name) ) {
@@ -45,6 +46,10 @@ require_once('nav.php');
                             $E_Quan="pleas enter correct book Quantity ";
                             $OK=0;
                         }
+                        if ($Categories=="-1") {
+                            $E_Categories="pleas chose correct Categories  ";
+                            $OK=0;
+                        }
                         if (empty($Author)) {
                             $E_Author="pleas enter correct book Author ";
                             $OK=0;
@@ -55,7 +60,7 @@ require_once('nav.php');
                             require_once('../Userboard/config.php');
 
                             if (isset($_FILES['Images']) && empty($_FILES['Images']['tmp_name'])) {
-                            $sql= "INSERT INTO `product` (`productId`, `name`, `descr`, `sku`, `price`, `productcategoryId`, `author`) VALUES (NULL, '$Name', '$Desc', '$SKU', '$Price', '$Categories', '$Author');";
+                            $sql= "INSERT INTO `product` (`productId`, `name`, `descr`, `sku`, `price`, `productcategoryId`, `author`,`productImage`,`Quantity`) VALUES (NULL, '$Name', '$Desc', '$SKU', '$Price', '$Categories', '$Author','defalt.png','$Quan')";
                             $result= mysqli_query($conn,$sql);
                             if(!$result)
                             {
@@ -68,7 +73,7 @@ require_once('nav.php');
                                 $folder="../Userboard/img/";
                                 $img=$_FILES['Images']['name'];
                                 $tmp=$_FILES['Images']['tmp_name'];
-                                $sql= "INSERT INTO `product` (`productId`, `name`, `descr`, `sku`, `price`, `productcategoryId`, `author`,`productImage`) VALUES (NULL, '$Name', '$Desc', '$SKU', '$Price', '$Categories', '$Author','$img')";
+                                $sql= "INSERT INTO `product` (`productId`, `name`, `descr`, `sku`, `price`, `productcategoryId`, `author`,`productImage`,`Quantity`) VALUES (NULL, '$Name', '$Desc', '$SKU', '$Price', '$Categories', '$Author','$img','$Quan')";
                                 $result= mysqli_query($conn,$sql);
                                 if(!$result)
                                 {
@@ -76,6 +81,7 @@ require_once('nav.php');
                                 }
 
                                 move_uploaded_file($tmp,$folder.$img);
+                                
 
                                  mysqli_close($conn);
 
@@ -92,7 +98,7 @@ require_once('nav.php');
 <!-- main change -->
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div   class="text-center">    
-            <h2> Sign up</h2>
+            <h2> Add Product</h2>
         </div>
     <hr>
     <div class="row">
@@ -175,11 +181,28 @@ require_once('nav.php');
                             <span class="input-group-text">
                                 <i class="bi bi-tags"></i>
                             </span>
-                                <select class="form-select" id="Categories" name="Categories" aria-label="Floating label select example">
-                                <option selected>  Categories</option>
-                                <option value="1">One</option>
+                                <select class="form-select" id="categories" name="Categories" aria-label="Floating label select example">
+                                <option selected value="-1">  Categories</option>
+                                <?php
+                                     require_once('../Userboard/config.php');
+                                     $sqlc="SELECT * FROM productcategory  ";
+                                     $resultc= mysqli_query($conn,$sqlc);
+                                     if (!$resultc ) {
+                                         die("Select error");
+                                     }
+            
+                                     while($row=mysqli_fetch_assoc($resultc))
+                                     { 
+                                         $titalc=$row['name'];
+                                         $categoriesId=$row['productcategoryId'];
+                                        
+                                         echo "<option value='$categoriesId'>$titalc</option>";
+                                     }
+                                   
+                                ?>
                             </select>                        
                         </div>
+                        <h5><?php echo $E_Categories;?></h5>
                         
                     </span>
 

@@ -64,11 +64,13 @@ require_once('nav.php');
                ?>
 <!-- main change -->
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div   class="text-center">    
-            <h2> Sign up</h2>
-        </div>
-    <hr>
-    <div class="row">
+    <div   class="text-center mt-5">    
+            <h2> Add New User</h2>
+    </div>
+    
+
+
+    <div class="row mt-5">
         <div class="col-md-10">
             <div class="row">
                 <div class="col-md-12">

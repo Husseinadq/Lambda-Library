@@ -10,12 +10,8 @@ require_once('nav.php');
         <div class="col-md-10">
             <div class="row">
                 <div class="col-md-12">
-                    <form name="about_us" id="add_about_us" action="#" method="post">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tr>
-                                    <td><label>About Us Text:</label></td>
-                                    <td><textarea name="about_text" id="editor" cols="100" rows="5"></textarea>
+                <form  id="contact" name="Contact" method="post" action="#" >
+                        <textarea name="text" id="editor" cols="100" rows="6"></textarea>
                                         <script>
                                             ClassicEditor
                                                 .create(document.querySelector('#editor'))
@@ -26,26 +22,21 @@ require_once('nav.php');
                                                     console.error(error);
                                                 });
                                         </script>
-                                    </td>
-                                </tr>
-                                        <tr>
-                                                <td></td>
-                                            <td>
-                                                <input class="btn btn-success" type="submit" value="Add" name="add_about">
-                                            </td>
-                                        </tr>
-                            </table>
-                        </div>
-                    </form>
+                         
+                        <div class="mb-4 text-center mt-4">
+                            <button type="submit"  name="About" id="about" class="btn btn-primary"> <i class="bi bi-plus-circle"> ADD</i> </button>
+                        </div>              
+                </form>
+
+                   
                     <?php
-                    if(isset($_POST['add_about'])){
+                    if(isset($_POST['About'])){
                         require_once('../Userboard/config.php');
-                        $text = $_POST['about_text'];
+                        $text = $_POST['text'];
                         if (!empty($text)) {
                             
-                        
                         $textr = str_replace("'", "''", "$text");
-                        $sql = "insert into aboutus(text)values('$textr')";
+                        $sql = "INSERT INTO `aboutus` (`id`, `text`) VALUES (NULL, '$textr')";
                         $result = mysqli_query($conn,$sql);
                         if(!$result){
                             echo "Inserted Error" . mysqli_error($conn);
