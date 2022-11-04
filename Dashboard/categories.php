@@ -37,7 +37,7 @@ require_once('nav.php');
           <td>$name</td>
           <td>$descr</td>
           <td>
-            <a href='#' class='btn btn-primary  ms-0' tabindex='-1' role='button' aria-disabled='true'>Edit</a>
+            <a href='editCategories.php?id=$id' class='btn btn-primary  ms-0' tabindex='-1' role='button' aria-disabled='true'>Edit</a>
             <a href='deletCategories.php?id=$id' class='btn btn-secondary   ms-0' tabindex='-1' role='button' aria-disabled='true'>Delete</a>
           </td>
          

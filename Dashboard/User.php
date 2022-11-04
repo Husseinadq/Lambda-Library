@@ -48,7 +48,7 @@ require_once('nav.php');
           <td>$pass</td>
           <td>$type</td>
           <td>
-            <a href='#' class='btn btn-primary  ms-0' tabindex='-1' role='button' aria-disabled='true'>Edit</a>
+            <a href='editUser.php?id=$id' class='btn btn-primary  ms-0' tabindex='-1' role='button' aria-disabled='true'>Edit</a>
             <a href='deleteUser.php?id=$id' class='btn btn-secondary   ms-0' tabindex='-1' role='button' aria-disabled='true'>Delete</a>
           </td>
          

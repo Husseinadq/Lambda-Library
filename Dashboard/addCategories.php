@@ -52,7 +52,6 @@ require_once('nav.php');
         <div   class="text-center">    
             <h2> Add Categories</h2>
         </div>
-    <hr>
     <div class="row">
         <div class="col-md-10">
             <div class="row">
