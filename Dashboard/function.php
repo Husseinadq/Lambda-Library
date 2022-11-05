@@ -1,4 +1,9 @@
 <?php
+function goToDashboard($page)
+{
+  header('location:'.$page.'.php');
+}
+
 function deleteUser($id)
 {
     require_once('../Userboard/config.php');

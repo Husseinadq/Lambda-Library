@@ -1,6 +1,12 @@
 <?php
 require_once('header.php');
 require_once('nav.php');
+if(empty($_SESSION['userId'])||$_SESSION['userId']==null)
+{ 
+  session_destroy();
+  goToDashboard("login");
+}
+
 
 ?>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -62,4 +68,5 @@ require_once('nav.php');
   </div>
 </main>
 <!-- end main  -->
-<?php require_once('footer.php');?>
+<?php require_once('footer.php');
+?>

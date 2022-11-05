@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    ob_start("ob_gzhandler");
+    require_once('function.php');
+    
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,7 +88,7 @@
         <h1 class="form-control text-center form-control-dark w-100 rounded-0 border-0">Lambda Library</h1>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="./sign_in.php">Sign out</a>
+                <a class="nav-link px-3" href="login.php">Sign out</a>
             </div>
         </div>
     </header>
