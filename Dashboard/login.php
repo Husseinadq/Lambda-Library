@@ -39,14 +39,18 @@
                              {
                                   
 
-                                 if ($email===$row['userEmail'] && $pass=== $row['password']) {
+                                 if ($email===$row['userEmail'] && $pass=== $row['password']&&$row['admin']===1) {
                                      $_SESSION['userId']=$row['userId'];
                                      $_SESSION['userName']=$row['firstName'];
                                      goToDashboard("User");
                                  }
                                  else{
+                                    if ($row['admin']!==1) {
+                                        $E_pass="Not allowed only admin";
+                                    }else{
+                                        $E_pass="wrong email or password";
+                                    }
                                     $_SESSION['userId']=null;
-                                    $E_pass="wrong email or password";
                                  }
 
                              }

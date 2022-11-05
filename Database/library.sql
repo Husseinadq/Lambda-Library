@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2022 at 11:10 AM
+-- Generation Time: Nov 05, 2022 at 11:26 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -117,17 +117,17 @@ CREATE TABLE `product` (
   `price` decimal(10,0) NOT NULL,
   `productcategoryId` int(25) NOT NULL,
   `author` varchar(50) NOT NULL,
-  `productImage` varchar(150) DEFAULT 'defalt.png'
+  `productImage` varchar(150) DEFAULT 'defalt.png',
+  `Quantity` int(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`productId`, `name`, `descr`, `sku`, `price`, `productcategoryId`, `author`, `productImage`) VALUES
-(1, 'Ecstasy', 'Ecastasy ds', '654465', '100', 1, 'hussein', 'defalt.png'),
-(12, 'Tree', 'asdf', '648', '555', 1, 'Tree Man', '9781783780266.jpg'),
-(13, 'SDF', 'asdf', '648k', '555', 1, 'dfh', 'defalt.png');
+INSERT INTO `product` (`productId`, `name`, `descr`, `sku`, `price`, `productcategoryId`, `author`, `productImage`, `Quantity`) VALUES
+(1, 'Ecstasy', 'Ecastasy ds', '654465', '100', 1, 'hussein', 'defalt.png', 0),
+(12, 'Tree', 'asdfasdf', '648', '555', 1, 'Tree Man', 'defalt.png', 0);
 
 -- --------------------------------------------------------
 
@@ -147,8 +147,7 @@ CREATE TABLE `productcategory` (
 
 INSERT INTO `productcategory` (`productcategoryId`, `name`, `descr`) VALUES
 (1, 'ENGLSH', 'sdf'),
-(2, 'Islamic Religion', 'islamic'),
-(3, 'Computer Programming', 'Computer Programming');
+(3, 'Computer Programmin ', 'Computer Programming ');
 
 -- --------------------------------------------------------
 
@@ -206,9 +205,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userId`, `password`, `firstName`, `lastName`, `telephone`, `userEmail`, `admin`) VALUES
-(1, 'hussein', 'hussein', 'hussein', 737, 'husseinadq2@gmail.com', 1),
-(2, '1234567', 'ameer', ' ', 777, 'ameer@gmail.com', 1),
-(3, '123456', 'othman', ' ', 777, 'othman@gmail.com', 0);
+(1, 'hussein', 'hussein', ' ', 737, 'husseinadq2@gmail.com', 0),
+(7, '123456789', 'hussein saem', ' ', 776928127, 'husseindq2@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -394,7 +392,7 @@ ALTER TABLE `taxes`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `userId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `useraddress`
