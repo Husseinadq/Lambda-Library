@@ -27,5 +27,41 @@
             echo "Error : ". $sqlCode ;
         }
         mysqli_close($conn);
+    }   
+    
+    function checkEmail($email)
+    {
+        try{
+            try {
+                 //check for "yahoo" email address 
+                 if(strpos($email,"yahoo")!==FALSE)
+                 {
+                     throw new Exception($email);
+                 }
+             return true;
+                } catch (Exception $e) {
+                    throw new CustomException($email);        
+                }
+            } catch(CustomException $e)
+            {
+                echo $e->errorMessage();
+            }
     }
+                
+                   
+                
+?>
+
+<?php
+class CustomException extends Exception 
+{
+    public function errorMessage()
+    {
+        $errorMsg= $this->getMessage().' is not a valid E-Mail address.';
+        return $errorMsg;
+    }
+}
+
+  
+
 ?>

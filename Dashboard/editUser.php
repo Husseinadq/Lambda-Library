@@ -14,7 +14,7 @@ require_once('nav.php');
     
 
     require_once('../Userboard/config.php');
-    $sql = "select * from user where  userId like $id";
+    $sql = "select * from user where userId like $id";
     $result = mysqli_query($conn, $sql);
     if (!$result) {
       die("Selected Erorr" . mysqli_error($conn));

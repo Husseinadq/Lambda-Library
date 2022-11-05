@@ -8,6 +8,7 @@
         <div class="text-center">
             <?php
             require_once('header.php');
+            require_once('function.php');
             ?>
             <h2> Sign up</h2>
             <p class="lead">Unlimited Library</p>
@@ -112,6 +113,7 @@
                <?php
                     if(isset($_POST['Signup']))
                     {
+                        
                         require_once('config.php');
                         $name=$_POST['Name'];
                         $email=$_POST['Email'];
@@ -119,12 +121,16 @@
                         $gender=$_POST['Gender'];
                         $pass=$_POST['Pass1'];
 
-                        $sql= "INSERT INTO `user` (`userId`, `password`, `firstName`, `lastName`, `telephone`, `userEmail`) VALUES (NULL, '$pass', '$name', NULL, '$number', '$email')";
+                        if (checkEmail($email)) {
+                             $sql= "INSERT INTO `user` (`userId`, `password`, `firstName`, `lastName`, `telephone`, `userEmail`) VALUES (NULL, '$pass', '$name', ' ', '$number', '$email')";
                         $result= mysqli_query($conn,$sql);
                         if(!$result)
                         {
                             echo "Error : ". $sql ;
                         }
+                        }
+
+                       
                         mysqli_close($conn);
                     }
                     
