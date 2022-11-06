@@ -1,11 +1,8 @@
 <?php
 require_once('header.php');
 require_once('nav.php');
-if(empty($_SESSION['userId'])||$_SESSION['userId']==null)
-{ 
-  session_destroy();
-  goToDashboard("login");
-}
+sessionMange();
+
 
 
 ?>

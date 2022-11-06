@@ -39,14 +39,21 @@
                              {
                                   
 
-                                 if ($email===$row['userEmail'] && $pass=== $row['password']&&$row['admin']===1) {
+                                 if ($email===$row['userEmail'] && $pass=== $row['password'] && $row['admin']==='1') {
                                      $_SESSION['userId']=$row['userId'];
                                      $_SESSION['userName']=$row['firstName'];
+                                        
+                                        // Taking current system Time
+                                        $_SESSION['start_time'] = time(); 
+                                        $_SESSION['destroy_time'] =60 /* (60s ) */; 
+                            
+                                         
+
                                      goToDashboard("User");
                                  }
                                  else{
                                     if ($row['admin']!==1) {
-                                        $E_pass="Not allowed only admin";
+                                        $E_pass="<font color='red'>Only admin alloyed </font>";
                                     }else{
                                         $E_pass="wrong email or password";
                                     }

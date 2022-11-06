@@ -2,6 +2,7 @@
     session_start();
     ob_start("ob_gzhandler");
     require_once('function.php');
+       
     
     ?>
 <!DOCTYPE html>

@@ -1,6 +1,8 @@
 <?php
 require_once('header.php');
 require_once('nav.php');
+sessionMange();
+
 
     $id=$_GET['id'];
     $name="";

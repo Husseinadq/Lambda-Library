@@ -1,4 +1,19 @@
 <?php
+function sessionMange()
+{
+  if(empty($_SESSION['userId'])||$_SESSION['userId']==null)
+{ 
+  session_destroy();
+  goToDashboard("login");
+}
+else
+{
+  if ((time()-$_SESSION['start_time'])> $_SESSION['destroy_time']) {
+    session_destroy();
+    goToDashboard("login");
+  }
+}
+}
 function goToDashboard($page)
 {
   header('location:'.$page.'.php');

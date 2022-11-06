@@ -53,11 +53,11 @@
 
                             echo " 
                                     <div class='col-lg-3 col-md-4 '>
-                                    <div class='card'>
+                                    <div class='card '>
                                         <div class='bg-image hover-zoom ripple ripple-surface ripple-surface-light'
                                         data-mdb-ripple-color='light'>
                                         <img src='img/$image'
-                                            class='w-75' />
+                                            class='w-75 ' />
                                         <a href='#!'>
                                             <div class='mask'>
                                             <div class='d-flex justify-content-start align-items-end h-100'>
