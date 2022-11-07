@@ -1,12 +1,22 @@
+<?php 
+  session_start();
+  ob_start("ob_gzhandler");
+ 
+ 
+?>
+
 <!DOCTYPE html>
+
 <head>
     <title>About</title>
 </head>
 <body>
-    <?php
-         require_once('header.php');
-
-    ?>
+<div class="bg-secondary">
+        <?php
+          require_once('header.php');
+          sessionMange();
+        ?>
+    </div>
 <div class="container-lg">
     <div class="row justify-content-center my-5">
     <?php

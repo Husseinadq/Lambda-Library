@@ -1,18 +1,21 @@
+
 <!DOCTYPE html>
 <head?>
     <title>Sign UP</title>
 </head>
 <body>
     <!--include header-->
-    <?php
-        require_once('header.php');
-    ?>
+    <div class="bg-secondary">
+        <?php
+          require_once('header.php');
+        ?>
+    </div>
 
     <!--contact form-->
-    <div class="container-lg">
-        <div class="text-center mt-3">
-            <h2> Get in Touch</h2>
-            <p class="lead">Questions to ask? Fill out the form to contact us directly...</p>
+    <div class="container-lg bg-secondary ">
+        <div class="text-center text-uppercase text-light  ">
+            <h2 class=" fw-bold m-5 "> Get in Touch</h2>
+            <p class="lead m-5">Questions to ask? Fill out the form to contact us directly...</p>
         </div>
 
         <div class="row justify-content-center my-5">

@@ -24,13 +24,14 @@
     </style>
     </head>
     <body>
+        
         <header>
 
-            <div class="container">
+            <div class="container bg-secondary">
                 <div class="row">
-                    <div class="col-sm-2 mt-3 ">
-                        <a href="index.php" class="navbar-brand">
-                            <span class="fw-bold text-scondary">
+                    <div class="col-sm-2 mt-4 ">
+                        <a href="index.php" class="navbar-brand ">
+                            <span class="fw-bold text-light text-uppercase fs-5 fw-bold ">
                                 <i class="bi bi-book"></i>
                                 Lambda
                             </span>

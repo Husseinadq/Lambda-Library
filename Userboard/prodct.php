@@ -1,9 +1,16 @@
+<?php
+  session_start();
+  ob_start("ob_gzhandler");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <?php
-   require_once('header.php');
-   ?>
+<div class="bg-secondary">
+        <?php
+          require_once('header.php');
+        ?>
+    </div>
 </head>
 <body>
     <?php

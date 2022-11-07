@@ -1,11 +1,16 @@
 <?php
 session_start();
 ob_start("ob_gzhandler");
-require_once('header.php');
-sessionMange();
+
 ?>
 <html>
     <body> 
+    <div class="bg-secondary">
+        <?php
+          require_once('header.php');
+          sessionMange();
+        ?>
+    </div>
         <!-- Categories -->
         <div class="container-lg">
             <div class="row">

@@ -1,4 +1,15 @@
 <?php
+    function showContent()
+    {
+        if(empty($_SESSION['userName'])||$_SESSION['userName']==null)
+         { 
+        return false;
+        }
+    else
+    {
+        return true;
+    }
+    }
     
     function sessionMange()
     {
@@ -83,6 +94,7 @@ class CustomException extends Exception
         $errorMsg= $this->getMessage().' is not a valid E-Mail address.';
         return $errorMsg;
     }
+    
 }
 
   

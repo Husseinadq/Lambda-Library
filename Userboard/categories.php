@@ -1,10 +1,17 @@
+
 <html>
     <body> 
         <!-- Categories -->
-        <div class="container-lg">
+    <div class="bg-light">
+        <?php
+          require_once('search.php');
+        ?>
+    </div>
+    <div class="bg-secondary">
+        <div class="container-lg ">
             <div class="row">
-            <h2 name="Title" class="text-center text-uppercase">categories</h2>
-                <div class="col-3 bg-primary ">
+            <h2 name="Title" class="text-center text-uppercase text-primary mt-5 mb-3 fw-bold ">categories</h2>
+                <div class="col-3 bg-secondary ">
                     <div class="list-group mt-3" id="list-tab" role="tablist">
                         <?php
                          require_once('config.php');
@@ -20,7 +27,7 @@
                              $categoriesId=$row['productcategoryId'];
                             
                              echo " 
-                             <a class='list-group-item list-group-item-action'  id='list-home-list' data-toggle='list' href='categoriesUI.php?category=$categoriesId' role='tab' aria-controls='home'>$titalc </a>
+                             <a class='list-group-item list-group-item-action bg-light text-primary'  id='list-home-list' data-toggle='list' href='categoriesUI.php?category=$categoriesId' role='tab' aria-controls='home'>$titalc </a>
                              ";
                          }
                         ?>
@@ -30,8 +37,9 @@
                 <div class="col-9 bg-secondary ">
                      <div class="d-flex flex-wrap text-center">
                     <?php
-
-                        if ($_GET['category']=='') {
+                        try {
+                        
+                        if ($_GET['category']==0) {
                             $val ="1";
                         }
                         else
@@ -50,43 +58,55 @@
                             $title=$row['name'];
                             $price=$row['price'];
                             $image=$row['productImage'];
+                            $cateName=" ";
+
+                            $sql="SELECT `name` FROM productcategory where productcategoryId like '$val' ";
+                            $result2= mysqli_query($conn,$sql);
+                            if (!$result2 ) {
+                            die("Select error");
+                            }
+                            while ($row2=mysqli_fetch_assoc($result2)) {
+                                $cateName=$row2['name'];
+                            }
+
 
                             echo " 
                                     <div class='col-lg-3 col-md-4 '>
-                                    <div class='card '>
+                                    <div class='card bg-light mt-3 mb-3 me-2'>
                                         <div class='bg-image hover-zoom ripple ripple-surface ripple-surface-light'
                                         data-mdb-ripple-color='light'>
                                         <img src='img/$image'
-                                            class='w-75 ' />
-                                        <a href='#!'>
-                                            <div class='mask'>
+                                            class='w-75 mt-4' />
+                                        
+                                        </div>
+                                        <div class='mask'>
                                             <div class='d-flex justify-content-start align-items-end h-100'>
                                                 <h5><span class='badge bg-primary ms-2'>New</span></h5>
                                             </div>
                                             </div>
-                                            <div class='hover-overlay'>
-                                            <div class='mask' style='background-color: rgba(251, 251, 251, 0.15);'></div>
-                                            </div>
-                                        </a>
-                                        </div>
                                         <div class='card-body'>
-                                        <a href='prodct.php?bookid=$bookid' class='text-reset'>
-                                            <h5 class='card-title mb-1'>$title</h5>
+                                        <a href='prodct.php?bookid=$bookid' class='text-reset '>
+                                            <h5 class='card-title mb-1 text-primary text-uppercase fw-bold '>$title</h5>
                                         </a>
                                         <a href='' class='text-reset'>
-                                            <p>Human Developement</p>
+                                            <p class=' text-primary text-uppercase'>$cateName</p>
                                         </a>
-                                        <h6 class='mb-1'>$$price</h6>
+                                        <h6 class='mb-1  text-primary text-uppercase'>$$price</h6>
                                         </div>
                                     </div>
                                     </div> ";
                         }
+
+                    } catch (Exception $th) {
+                        echo $th;
+                    }
                            
                     ?> 
                      </div>  
                 </div>
 
             </div>
+        </div>
         </div>
     </body>
 </html>

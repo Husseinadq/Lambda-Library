@@ -11,17 +11,35 @@ ob_start("ob_gzhandler");
     <title>Document</title>
 </head>
 <body>
-    <div class="container-lg">
-        <div class="row">
-           <?php
-           require_once('header.php');
-           require_once('search.php');
-           require_once('categories.php');
-           require_once('footer.php');
-     
-           ?> 
-        </div>
+    <div class="bg-light">
+    <div class="bg-secondary">
+        <?php
+          require_once('header.php');
+        ?>
     </div>
+    <div class="bg-light">
+        <?php
+          require_once('search.php');
+        ?>
+    </div>
+    <div class="bg-secondary">
+        <?php
+          require_once('categories.php');
+        ?>
+    </div>
+    <div class="bg-light">
+        <?php
+          require_once('productList.php');
+        ?>
+    </div>
+    <div class="bg-secondary " id="contact"> 
+        <?php        
+       
+        require_once('contact.php');
+    
+        ?> 
+    </div>
+</div>
     
 </body>
 </html>
