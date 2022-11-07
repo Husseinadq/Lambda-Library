@@ -1,6 +1,7 @@
 <?php
-    session_start();
-    ob_start("ob_gzhandler");
+ session_start();
+ ob_start("ob_gzhandler");
+require_once('header.php');
     ?>
 <!DOCTYPE html>
 <head?>
@@ -9,7 +10,7 @@
 <body>
 
     <?php
-    require_once('header.php');
+    
     $E_email="";
     $E_pass="";
     $er="";
@@ -98,7 +99,9 @@
                                  if ($email===$row['userEmail'] && $pass=== $row['password']) {
                                      $_SESSION['userId']=$row['userId'];
                                      $_SESSION['userName']=$row['firstName'];
-                                     header('location:index.php');
+                                     $_SESSION['start_time'] = time(); 
+                                     $_SESSION['destroy_time'] =1800 /* (30*60 ) */; 
+                                    goToPage("index");
                                  }
                              }
                              if(isset($_POST['Email']) && isset($_POST['Pass'])){

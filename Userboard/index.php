@@ -1,3 +1,7 @@
+<?php
+session_start();
+ob_start("ob_gzhandler");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +17,7 @@
            require_once('header.php');
            require_once('search.php');
            require_once('categories.php');
+           require_once('footer.php');
      
            ?> 
         </div>

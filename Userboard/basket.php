@@ -1,9 +1,13 @@
-<?php
-require_once('config.php');
-    include('function.php');
+<?php 
+    session_start();
+    ob_start("ob_gzhandler");
+   
+    require_once('function.php');
+ require_once('config.php');
+    sessionMange();
+    
     $productID = $_GET['productID'];
     addToBasket($conn,1,$productID);
-    //$val = $_GET['category'];
     $locatiion='location:prodct.php?bookid='.$productID;
     header($locatiion);
 

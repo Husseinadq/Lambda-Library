@@ -1,4 +1,27 @@
 <?php
+    
+    function sessionMange()
+    {
+    if(empty($_SESSION['userName'])||$_SESSION['userName']==null)
+    { 
+        session_destroy();
+        goToPage("login");
+    }
+    else
+    {
+    if ((time()-$_SESSION['start_time'])> $_SESSION['destroy_time']) {
+        session_destroy();
+        goToPage("login");
+    }
+    }
+    }
+
+    function goToPage($page)
+    {
+        header('location:'.$page.'.php');
+    }
+
+
     function addToBasket($conn,$userId,$itemId)
     {
         $sqlCode= "INSERT INTO `cart` (`cartId`, `total`, `userId`) VALUES (NULL, '0', '$userId')";

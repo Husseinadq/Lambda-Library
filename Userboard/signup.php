@@ -1,3 +1,8 @@
+<?php
+session_start();
+ob_start("ob_gzhandler");
+require_once('header.php');
+?>
 <!DOCTYPE html>
 <head?>
     <title>Sign UP</title>
@@ -7,8 +12,7 @@
     <div class="container-lg">
         <div class="text-center">
             <?php
-            require_once('header.php');
-            require_once('function.php');
+            
             ?>
             <h2> Sign up</h2>
             <p class="lead">Unlimited Library</p>
@@ -123,11 +127,18 @@
 
                         if (checkEmail($email)) {
                              $sql= "INSERT INTO `user` (`userId`, `password`, `firstName`, `lastName`, `telephone`, `userEmail`) VALUES (NULL, '$pass', '$name', ' ', '$number', '$email')";
-                        $result= mysqli_query($conn,$sql);
-                        if(!$result)
-                        {
-                            echo "Error : ". $sql ;
-                        }
+                            $result= mysqli_query($conn,$sql);
+                            if(!$result)
+                            {
+                                echo "Error : ". $sql ;
+                            }
+                            else
+                            { 
+                                $_SESSION['userName']=$name;
+                                $_SESSION['start_time'] = time(); 
+                                $_SESSION['destroy_time'] =1800 /* (30*60 ) */; 
+                               goToPage("index");
+                            }
                         }
 
                        
@@ -153,3 +164,7 @@
     <script src="js/sign.up.js"></script>
 
 </body>
+
+<?php
+    ob_end_flush();
+?>
