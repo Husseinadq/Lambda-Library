@@ -1,0 +1,22 @@
+{
+  "name": "lambda-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Husseinadq/Lambda-Library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Husseinadq/Lambda-Library/issues"
+  },
+  "homepage": "https://github.com/Husseinadq/Lambda-Library#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.2"
+  }
+}

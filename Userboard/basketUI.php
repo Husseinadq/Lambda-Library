@@ -16,7 +16,7 @@ sessionMange();
                 <div class="col-12 bg-secondary ">
                      <div class="d-flex flex-wrap text-center">
                     <?php
-                        $val = 1;//$_GET['SearchText'];
+                        $val =  $_SESSION['userId'];//$_GET['SearchText'];
                         $sqlBas="SELECT * FROM cart where `userId` like '$val'";
                         $resultBas= mysqli_query($conn,$sqlBas);
                         if (!$resultBas ) {
@@ -78,7 +78,7 @@ sessionMange();
                         require_once('config.php');
                         require_once('function.php');
 
-                        buy($conn,1);
+                        buy($conn, $_SESSION['userId']);
                     }
                     
                ?>

@@ -1,8 +1,8 @@
 <html>
     <body>
         <!-- navbar -->
-        <nav class="navbar navbar-expand-md navbar-light">
-            <div class="container-xxl">
+        <nav class="navbar navbar-expand-md navbar-primary">
+            <div class="container-xxl ">
                
 
                 <!-- toggle button for mobile nav -->
@@ -17,27 +17,27 @@
                         <div class="collapse navbar-collapse justify-content-start align-center" id="main-nav">
                           <ul class="navbar-nav">
                               <li class="nav-item">
-                                <a href="index.php" class="nav-link">Home</a>  
+                                <a href="index.php" class="nav-link text-primary">Home</a>  
                               </li>
                               <li class="nav-item">
-                                <a href="categoriesUI.php" class="nav-link">Categories</a>  
+                                <a href="categoriesUI.php" class="nav-link text-primary">Categories</a>  
                               </li>
                               <li class="nav-item">
-                                <a href="#authors" class="nav-link">Authors</a>  
+                                <a href="#authors" class="nav-link text-primary">Authors</a>  
                               </li>
                               <li class="nav-item">
-                                <a href="searchUI.php" class="nav-link">Search</a>  
+                                <a href="searchUI.php" class="nav-link text-primary">Search</a>  
                               </li>
                               <li class="nav-item">
-                                <a href="about.php" class="nav-link">About</a>  
+                                <a href="about.php" class="nav-link text-primary">About</a>  
                               </li>
                               <li class="nav-item">
-                                <a href="contact.php" class="nav-link">Contact</a>  
+                                <a href="contact.php" class="nav-link text-primary">Contact</a>  
                               </li>
                            </ul>
                            
                             <div class="position-absolute top-0 end-0">
-                              <a href="basketUI.php" class="btn btn-primary btn-sm end-0 top-0 m-2">
+                              <a href="basketUI.php" class="btn btn-primary btn-sm end-0 top-0 m-2 ">
                               <span class="bi bi-cart3"></span> Basket
                               </a> 
                               <a href="login.php" class="btn btn-primary btn-sm end-0 top-0 m-2">Log in </a> 
