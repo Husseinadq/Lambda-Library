@@ -20,7 +20,7 @@
                              $categoriesId=$row['productcategoryId'];
                             
                              echo " 
-                             <a class='list-group-item list-group-item-action'  id='list-home-list' data-toggle='list' href='categoriesUI.php?category=$categoriesId' role='tab' aria-controls='home'>$titalc Stories</a>
+                             <a class='list-group-item list-group-item-action'  id='list-home-list' data-toggle='list' href='categoriesUI.php?category=$categoriesId' role='tab' aria-controls='home'>$titalc </a>
                              ";
                          }
                         ?>
