@@ -75,6 +75,13 @@ sessionMange();
                                 $folder="../Userboard/img/";
                                 $img=$_FILES['Images']['name'];
                                 $tmp=$_FILES['Images']['tmp_name'];
+                                if ((($_FILES['Images']['type']=="image/jpeg")
+                                ||($_FILES['Images']['type']=="image/gif")
+                                ||($_FILES['Images']['type']=="image/jpg")
+                                ||($_FILES['Images']['type']=="image/png"))
+                                &&($_FILES['Images']['size']<(88*1024))) {
+                                    
+                                
                                 $sql= "INSERT INTO `product` (`productId`, `name`, `descr`, `sku`, `price`, `productcategoryId`, `author`,`productImage`,`Quantity`) VALUES (NULL, '$Name', '$Desc', '$SKU', '$Price', '$Categories', '$Author','$img','$Quan')";
                                 $result= mysqli_query($conn,$sql);
                                 if(!$result)
@@ -83,8 +90,14 @@ sessionMange();
                                 }
 
                                 move_uploaded_file($tmp,$folder.$img);
-                                
-
+                                echo "<script>alert('Success')</script>";
+                                goToDashboard("product");
+                                }
+                                else
+                                {
+                                    $E_Image="Invalid file";
+                                }
+                               
                                  mysqli_close($conn);
 
                             }

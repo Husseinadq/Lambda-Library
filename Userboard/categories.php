@@ -71,27 +71,28 @@
 
 
                             echo " 
-                                    <div class='col-lg-3 col-md-4 '>
-                                    <div class='card bg-light mt-3 mb-3 me-2'>
+                                    <div class='col-lg-3 col-md-4 ' >
+                                    <div class='card bg-light mt-3 mb-3 me-2' style='height: 4 50px; background-color: rgba(255,0,0,.1);'>
                                         <div class='bg-image hover-zoom ripple ripple-surface ripple-surface-light'
                                         data-mdb-ripple-color='light'>
                                         <img src='img/$image'
-                                            class='w-75 mt-4' />
+                                            class='w-75  mt-4'style='height: 250px; background-color: rgba(255,0,0,.1);' />
                                         
                                         </div>
                                         <div class='mask'>
                                             <div class='d-flex justify-content-start align-items-end h-100'>
-                                                <h5><span class='badge bg-primary ms-2'>New</span></h5>
+                                                <h5><span class='badge bg-primary ms-2'>$cateName</span></h5>
                                             </div>
                                             </div>
                                         <div class='card-body'>
-                                        <a href='prodct.php?bookid=$bookid' class='text-reset '>
-                                            <h5 class='card-title mb-1 text-primary text-uppercase fw-bold '>$title</h5>
+                                        <a href='prodct.php?bookid=$bookid' >
+                                            <h6 class='card-title mb-0 text-primary text-uppercase fw-bold w-100'>$title</h6>
                                         </a>
                                         <a href='' class='text-reset'>
-                                            <p class=' text-primary text-uppercase'>$cateName</p>
+                                            <p class=' text-primary text-uppercase w-100'></p>
                                         </a>
-                                        <h6 class='mb-1  text-primary text-uppercase'>$$price</h6>
+                                        <h6 class='mb-1  text-primary text-uppercase w-100'>$$price</h6>
+                                        
                                         </div>
                                     </div>
                                     </div> ";

@@ -35,7 +35,7 @@
     ?>
      <!-- main  and intro -->
 
-     <section class="intro">
+     <section class="intro bg-light">
         <div class="container-lg">
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-5 text-center text-md-start">
@@ -69,7 +69,7 @@
 
 
      <!-- reviews list-->
-     <section id="reviews" class="bg-light">
+     <section id="reviews" class=" bg-secondary">
         <div class="container-lg">
             <div class="text-center">
                 <h2> <i class="bi bi-stars"></i> Book Reviews </h2>

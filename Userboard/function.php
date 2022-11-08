@@ -24,7 +24,9 @@
         session_destroy();
         goToPage("login");
     }
+    
     }
+    return true;
     }
 
     function goToPage($page)

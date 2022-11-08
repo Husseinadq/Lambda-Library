@@ -55,6 +55,7 @@ sessionMange();
           }
           else
           {
+            echo "<script>alert('Success')</script>";
             goToPage("profile");
           }
           mysqli_close($conn);

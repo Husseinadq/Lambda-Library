@@ -1,7 +1,7 @@
 <?php
  session_start();
  ob_start("ob_gzhandler");
-require_once('header.php');
+
     ?>
 <!DOCTYPE html>
 <head?>
@@ -17,12 +17,17 @@ require_once('header.php');
     $er="";
     $Ok=1;
    
-    ?>
+    ?> 
+    <div class="bg-light">
+    <div class="bg-secondary">
+        <?php require_once('header.php');?>
+    </div>
      <!-- login form -->
-    <div class="container-lg">
+    
+    <div class="container-lg ">
         <div class="text-center">
-            <h2> Log IN</h2>
-            <p class="lead">Unlimited Library</p>
+            <h2 class=" mt-5 mb-3 text-primary text-uppercase  mb-3 fw-bold"> Log IN</h2>
+            <p class="lead text-uppercase text-primary mt-1">Unlimited Library</p>
         </div>
 
         <div class="row justify-content-center my-5">
@@ -63,7 +68,7 @@ require_once('header.php');
 
                     
                     <!--Submit Button  -->
-                         <div class="mb-4 text-center mt-3">
+                         <div class="mb-4 text-center mt-5">
                             <button type="submit" class="btn btn-primary col-lg-3" id="login" name="Login"  > 
                                 <i class="bi bi-box-arrow-in-right"> </i>
                                 Log in  </button>
@@ -116,7 +121,7 @@ require_once('header.php');
             </div>  
         </div>      
     </div>
-
+    </div>  
     <!--for toolt -->
     <script>
         const tooltip=document.querySelectorAll('.toolt')

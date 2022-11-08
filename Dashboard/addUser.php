@@ -56,6 +56,7 @@ sessionMange();
                             {
                                 echo "Error : ". $sql ;
                             }
+                            echo "<script>alert('Success')</script>";
                              mysqli_close($conn);
                         }
           

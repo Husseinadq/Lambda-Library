@@ -1,20 +1,23 @@
 <?php
 session_start();
 ob_start("ob_gzhandler");
-require_once('header.php');
 ?>
 <!DOCTYPE html>
 <head?>
     <title>Sign UP</title>
 </head>
 <body>
+   <div class="bg-light"> 
+    <div class="bg-secondary">
+        <?php require_once('header.php'); ?>
+    </div>
+    
     <!-- contact form -->
+
     <div class="container-lg">
         <div class="text-center">
-            <?php
-            
-            ?>
-            <h2> Sign up</h2>
+           
+            <h2 class="text-uppercase text-primary mt-5 mb-3 fw-bold"> Sign up</h2>
             <p class="lead">Unlimited Library</p>
         </div>
 
@@ -151,7 +154,6 @@ require_once('header.php');
         </div>
     </div>
     
-  
 
 
     <!--for toolt -->

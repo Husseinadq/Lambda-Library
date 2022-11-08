@@ -83,6 +83,7 @@ sessionMange();
             echo "Error : ". $sql ;
             }
             move_uploaded_file($tmp,$folder.$img);
+            echo "<script>alert('Success')</script>";
             mysqli_close($conn);
             
   
