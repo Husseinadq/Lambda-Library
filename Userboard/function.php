@@ -64,6 +64,12 @@
         }
         mysqli_close($conn);
     }   
+
+    function custommError($errno,$errstr){
+        echo "<b>Error : </b> [$errno]  $errstr <br/>";
+        echo "Ending Script";
+        die();
+        }
     
     function checkEmail($email)
     {
@@ -84,7 +90,25 @@
             }
     }
                 
-                   
+    function  checkUser($email,$conn){
+        $exest=true;
+        $sql="SELECT * FROM `user` where userEmail = '$email'";
+        $exe=mysqli_query($conn,$sql);
+        if (!$exe) {
+            echo" $sql is wrong";
+        }
+        
+        while($row=mysqli_fetch_assoc($exe))
+        {
+            if ($row['userEmail']==$email) {
+               $exest=false;
+            }
+          
+            
+        }
+
+        return $exest;
+    }             
                 
 ?>
 

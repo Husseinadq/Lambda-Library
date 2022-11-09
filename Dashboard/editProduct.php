@@ -76,13 +76,37 @@ sessionMange();
             $folder="../Userboard/img/";
             $img=$_FILES['Images']['name'];
             $tmp=$_FILES['Images']['tmp_name'];
-            $sql= "UPDATE `product` SET `name` = '$newName', `descr` = '$newDesc', `sku` = '$newSku', `price` = '$newPrice', `productcategoryId` = '$newCateId', `author` = '$newAuthor', `productImage` = '$img', `Quantity` = '$newQuantity' WHERE `product`.`productId` = $id";
+
+            if (isset($_FILES['Images']) && empty($_FILES['Images']['tmp_name'])) {
+                $sql= "UPDATE `product` SET `name` = '$newName', `descr` = '$newDesc', `sku` = '$newSku', `price` = '$newPrice', `productcategoryId` = '$newCateId', `author` = '$newAuthor', `productImage` = '$img', `Quantity` = '$newQuantity' WHERE `product`.`productId` = $id";
+                $result= mysqli_query($conn,$sql);
+                if(!$result)
+                {
+                    echo "Error : ". $sql ;
+                }
+                 mysqli_close($conn);            }
+            else
+            {
+                $folder="../Userboard/img/";
+                $img=$_FILES['Images']['name'];
+                $tmp=$_FILES['Images']['tmp_name'];
+                if ((($_FILES['Images']['type']=="image/jpeg")
+                ||($_FILES['Images']['type']=="image/gif")
+                ||($_FILES['Images']['type']=="image/jpg")
+                ||($_FILES['Images']['type']=="image/png"))
+                &&($_FILES['Images']['size']<(88*1024))) {
+                   
+                    $newImage=round(1,999).$newSku.$img;
+            
+            $sql= "UPDATE `product` SET `name` = '$newName', `descr` = '$newDesc', `sku` = '$newSku', `price` = '$newPrice', `productcategoryId` = '$newCateId', `author` = '$newAuthor', `productImage` = '$newImage', `Quantity` = '$newQuantity' WHERE `product`.`productId` = $id";
             $result= mysqli_query($conn,$sql);
             if(!$result)
             {
             echo "Error : ". $sql ;
             }
-            move_uploaded_file($tmp,$folder.$img);
+            move_uploaded_file($tmp,$folder.$newImage);
+            }
+        }
             echo "<script>alert('Success')</script>";
             mysqli_close($conn);
             

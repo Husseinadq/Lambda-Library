@@ -1,4 +1,5 @@
 <?php
+//#tuTdM~4POsW8N~i
 session_start();
 ob_start("ob_gzhandler");
 ?>
@@ -36,6 +37,13 @@ ob_start("ob_gzhandler");
         <?php        
        
         require_once('contact.php');
+    
+        ?> 
+    </div>
+    <div class="bg-light " id="contact"> 
+        <?php        
+       
+        require_once('footer.php');
     
         ?> 
     </div>

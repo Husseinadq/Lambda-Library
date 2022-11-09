@@ -24,7 +24,7 @@
                             $image=$row['productImage'];
 
                             echo " 
-                                    <div class='col-lg-3 col-md-4 me-3 mt-3 '>
+                                    <div class='col-lg-3 col-md-4 mt-3 '>
                                     <div class='card bg-secondary' >
                                         <div class='bg-image hover-zoom ripple ripple-surface ripple-surface-light'
                                         data-mdb-ripple-color='light'>

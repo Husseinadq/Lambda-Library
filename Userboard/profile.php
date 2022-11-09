@@ -5,13 +5,13 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <?php
-   require_once('header.php');
-   ?>
-</head>
 
 <body>
+    <div class="bg-secondary">
+    <?php
+   require_once('header.php');
+   ?>
+    </div>
     <?php
     require_once('config.php');
     $val =  $_SESSION['userId'];
@@ -94,7 +94,13 @@
 
     </div>
 
-
+    <div class="bg-light " id="contact"> 
+        <?php        
+       
+        require_once('footer.php');
+    
+        ?> 
+    </div>
 
    <!-- JavaScript Bundle with Popper -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" 

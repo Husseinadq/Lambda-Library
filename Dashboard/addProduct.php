@@ -80,16 +80,17 @@ sessionMange();
                                 ||($_FILES['Images']['type']=="image/jpg")
                                 ||($_FILES['Images']['type']=="image/png"))
                                 &&($_FILES['Images']['size']<(88*1024))) {
-                                    
+                                   
+                                    $newImage=round(1,999).$SKU.$img;
                                 
-                                $sql= "INSERT INTO `product` (`productId`, `name`, `descr`, `sku`, `price`, `productcategoryId`, `author`,`productImage`,`Quantity`) VALUES (NULL, '$Name', '$Desc', '$SKU', '$Price', '$Categories', '$Author','$img','$Quan')";
+                                $sql= "INSERT INTO `product` (`productId`, `name`, `descr`, `sku`, `price`, `productcategoryId`, `author`,`productImage`,`Quantity`) VALUES (NULL, '$Name', '$Desc', '$SKU', '$Price', '$Categories', '$Author','$$newImage','$Quan')";
                                 $result= mysqli_query($conn,$sql);
                                 if(!$result)
                                 {
                                     echo "Error : ". $sql ;
                                 }
 
-                                move_uploaded_file($tmp,$folder.$img);
+                                move_uploaded_file($tmp,$folder.$newImage);
                                 echo "<script>alert('Success')</script>";
                                 goToDashboard("product");
                                 }

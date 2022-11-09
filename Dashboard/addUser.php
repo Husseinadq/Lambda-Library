@@ -47,6 +47,7 @@ sessionMange();
                         
                         
                         if ($OK==1) {
+                            $newPass=md5($Pass2);
                             
                             require_once('../Userboard/config.php');
 

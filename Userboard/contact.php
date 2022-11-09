@@ -82,7 +82,5 @@
 
 
     <!--include footer-->
-    <?php
-        require_once('footer.php');
-    ?>
+    
 </body>

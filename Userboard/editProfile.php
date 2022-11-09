@@ -2,7 +2,12 @@
 
 session_start();
 ob_start("ob_gzhandler");
-require_once('header.php');
+?>
+<div class="bg-secondary">
+<?php require_once('header.php');
+?>
+</div>
+<?php 
 sessionMange();
 
 
@@ -37,7 +42,7 @@ sessionMange();
        
         if( $_POST['Pass2']== $_POST['Pass1'])
         {   $newName = $_POST['Name'];
-            $newPass = $_POST['Pass2'];
+            $newPass =  md5($_POST['Pass2']);
              $newEmail = $_POST['Email'];
             $newPhone = $_POST['Number'];
             $newType = '0';

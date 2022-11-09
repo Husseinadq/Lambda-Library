@@ -11,6 +11,8 @@
     <title>About</title>
 </head>
 <body>
+<div class="bg-light">
+
 <div class="bg-secondary">
         <?php
           require_once('header.php');
@@ -41,4 +43,6 @@
         </div>   
     </div>
 </div>
+</div>
+
 </body>

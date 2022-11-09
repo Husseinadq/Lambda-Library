@@ -62,5 +62,12 @@
 
             </div>
         </div>
+        <div class="bg-light " id="contact"> 
+        <?php        
+       
+        require_once('footer.php');
+    
+        ?> 
+    </div>
     </body>
 </html>

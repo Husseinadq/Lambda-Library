@@ -35,7 +35,7 @@ sessionMange();
        
         if( $_POST['Pass2']== $_POST['Pass1'])
         {   $newName = $_POST['Name'];
-            $newPass = $_POST['Pass2'];
+            $newPass =md5($_POST['Pass2']);
              $newEmail = $_POST['Email'];
             $newPhone = $_POST['Number'];
             $newType = $_POST['Admin'];

@@ -151,7 +151,13 @@
         </div>
 
     </div>
-
+    <div class="bg-light " id="contact"> 
+        <?php        
+       
+        require_once('footer.php');
+    
+        ?> 
+    </div>
 
 
    <!-- JavaScript Bundle with Popper -->

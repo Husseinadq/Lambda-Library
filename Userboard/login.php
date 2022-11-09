@@ -76,11 +76,11 @@
                 </form>
                 <?php
                  if(isset($_POST['Login']))
-                 {
+                 {   
+                    require_once('config.php');
                      if (isset($_POST['Email']) && isset($_POST['Pass'])) {
-                         $email=$_POST['Email'];
-                        
-                         $pass=$_POST['Pass'];
+                         $email=mysqli_real_escape_string($conn,$_POST['Email']);
+                         $pass=md5(mysqli_real_escape_string($conn,$_POST['Pass']));
                          if (empty($email)) {
                              echo $E_email="pleas enter your email ";
                              $Ok=0;
@@ -91,7 +91,6 @@
                          }
                          echo "<b>$Ok</b>";
                          if ($Ok==1) {
-                             require_once('config.php');
                              $sql="SELECT * FROM `user` where userEmail = '$email'";
                              $exe=mysqli_query($conn,$sql);
                              if (!$exe) {
@@ -120,6 +119,13 @@
                
             </div>  
         </div>      
+    </div>
+    <div class="bg-light " id="contact"> 
+        <?php        
+       
+        require_once('footer.php');
+    
+        ?> 
     </div>
     </div>  
     <!--for toolt -->

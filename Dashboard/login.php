@@ -15,10 +15,11 @@
     
                  if(isset($_POST['Login']))
                  {
+                    require_once('../Userboard/config.php');
                      if (isset($_POST['Email']) && isset($_POST['Pass'])) {
-                         $email=$_POST['Email'];
+                         $email=mysqli_real_escape_string($conn,$_POST['Email']);
                         
-                         $pass=$_POST['Pass'];
+                         $pass=md5(mysqli_real_escape_string($conn,$_POST['Pass']));
                          if (empty($email)) {
                              echo $E_email="pleas enter your email ";
                              $Ok=0;
@@ -28,7 +29,6 @@
                              $Ok=0;
                          }
                          if ($Ok==1) {
-                            require_once('../Userboard/config.php');
                             $sql="SELECT * FROM `user` where userEmail = '$email'";
                              $exe=mysqli_query($conn,$sql);
                              if (!$exe) {
@@ -45,7 +45,7 @@
                                         
                                         // Taking current system Time
                                         $_SESSION['start_time'] = time(); 
-                                        $_SESSION['destroy_time'] =60 /* (60s ) */; 
+                                        $_SESSION['destroy_time'] =1800 /* ( 30*60s ) */; 
                             
                                          
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2022 at 11:26 PM
+-- Generation Time: Nov 09, 2022 at 09:53 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -127,7 +127,11 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`productId`, `name`, `descr`, `sku`, `price`, `productcategoryId`, `author`, `productImage`, `Quantity`) VALUES
 (1, 'Ecstasy', 'Ecastasy ds', '654465', '100', 1, 'hussein', 'defalt.png', 0),
-(12, 'Tree', 'asdfasdf', '648', '555', 1, 'Tree Man', 'defalt.png', 0);
+(12, 'Tree', 'asdfasdf', '648', '555', 1, 'Tree Man', 'defalt.png', 0),
+(14, 'love', 'de', 'de', '10', 3, 'ameer', '1dephoto (4).jpg', 10),
+(15, 'The 1619', 'de', 'de12', '20', 4, 'ameer', '1de12photo (5).jpg', 20),
+(16, 'palmares', 'de', 'de12', '30', 4, 'ameer', '1de12photo (3).jpg', 10),
+(17, 'virtue', 'de', 'de45', '40', 1, 'huessin', '1de45photo (1).jpg', 20);
 
 -- --------------------------------------------------------
 
@@ -147,7 +151,8 @@ CREATE TABLE `productcategory` (
 
 INSERT INTO `productcategory` (`productcategoryId`, `name`, `descr`) VALUES
 (1, 'ENGLSH', 'sdf'),
-(3, 'Computer Programmin ', 'Computer Programming ');
+(3, 'Computer Programmin ', 'Computer Programming '),
+(4, 'Novel', 'novel');
 
 -- --------------------------------------------------------
 
@@ -205,8 +210,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userId`, `password`, `firstName`, `lastName`, `telephone`, `userEmail`, `admin`) VALUES
-(1, 'hussein', 'hussein', ' ', 737, 'husseinadq2@gmail.com', 0),
-(7, '123456789', 'hussein saem', ' ', 776928127, 'husseindq2@gmail.com', 1);
+(1, '86a5f0f949bb55dab4626fa9716b16af', 'hussein', ' ', 737, 'husseinadq2@gmail.com', 1),
+(7, '4fd871a3338408a1fa1641c518c9d909', 'ameer', ' ', 776928127, 'ameer@gmail.com', 1),
+(8, '1234567', 'memo', ' ', 7777, 'memo@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -368,13 +374,13 @@ ALTER TABLE `ordear`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `productId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `productcategory`
 --
 ALTER TABLE `productcategory`
-  MODIFY `productcategoryId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `productcategoryId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `reviews`
@@ -392,7 +398,7 @@ ALTER TABLE `taxes`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `userId` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `useraddress`

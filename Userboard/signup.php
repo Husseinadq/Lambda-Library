@@ -122,14 +122,14 @@ ob_start("ob_gzhandler");
                     {
                         
                         require_once('config.php');
-                        $name=$_POST['Name'];
-                        $email=$_POST['Email'];
-                        $number=$_POST['Number'];
-                        $gender=$_POST['Gender'];
-                        $pass=$_POST['Pass1'];
+                        $name=mysqli_real_escape_string($conn,$_POST['Name']);
+                        $email=mysqli_real_escape_string($conn,$_POST['Email']);
+                        $number=mysqli_real_escape_string($conn,$_POST['Number']);
+                        $gender=mysqli_real_escape_string($conn,$_POST['Gender']);
+                        $pass= md5($_POST['Pass2']);
 
-                        if (checkEmail($email)) {
-                             $sql= "INSERT INTO `user` (`userId`, `password`, `firstName`, `lastName`, `telephone`, `userEmail`) VALUES (NULL, '$pass', '$name', ' ', '$number', '$email')";
+                        if (checkEmail($email)&&checkUser($email,$conn)) {
+                            $sql= "INSERT INTO `user` (`userId`, `password`, `firstName`, `lastName`, `telephone`, `userEmail`) VALUES (NULL, '$pass', '$name', ' ', '$number', '$email')";
                             $result= mysqli_query($conn,$sql);
                             if(!$result)
                             {
@@ -137,11 +137,25 @@ ob_start("ob_gzhandler");
                             }
                             else
                             { 
+                                $sql2="SELECT * FROM `user` where userEmail = '$email'";
+                                $exe2=mysqli_query($conn,$sql2);
+                                if (!$exe2) {
+                                   echo" $sql2 is wrong";
+                                }
+                               
+                                while($row2=mysqli_fetch_assoc($exe2))
+                                {
+                                $_SESSION['userId']=$row2['userId'];
                                 $_SESSION['userName']=$name;
                                 $_SESSION['start_time'] = time(); 
                                 $_SESSION['destroy_time'] =1800 /* (30*60 ) */; 
+                                }
                                goToPage("index");
                             }
+                        }
+                        else
+                        {
+                            echo "<script>alert('These email address is used')</script>";
                         }
 
                        
@@ -153,7 +167,13 @@ ob_start("ob_gzhandler");
             </div>
         </div>
     </div>
+    <div class="bg-light " id="contact"> 
+        <?php        
+       
+        require_once('footer.php');
     
+        ?> 
+    </div> 
 
 
     <!--for toolt -->

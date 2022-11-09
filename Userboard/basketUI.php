@@ -125,5 +125,13 @@ ob_start("ob_gzhandler");
             </div>
         </div>
         </div>
+        <div class="bg-light " id="contact"> 
+        <?php        
+       
+        require_once('footer.php');
+    
+        ?> 
+    </div>
     </body>
+
 </html>

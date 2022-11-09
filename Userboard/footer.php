@@ -9,7 +9,14 @@
 <body>
     
     <div class="bk-light">
-        
+    <div class="container-lg">
+        <div class="row">
+            <div class="text-center  mb-3">
+                <h2 class="text-uppercase text-primary  mb-3 fw-bold text-center"> Lambda Library</h2>
+                <p class="lead mt-3">Developed by Hussein and Ameer</p>
+            </div>
+        </div>
+    </div>
     </div>
 </body>
 </html>
